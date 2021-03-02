@@ -32,9 +32,9 @@ mn_mf_comparaison = pd.read_csv('./data/mn_mf_comparaison.csv')
 plot_comparaison_F = make_comparaison(mn_mf_comparaison, sexe='F')
 
 #MAP SITES COUPE DU MONDE
-#TOKEN = os.getenv("MAPBOX_TOKEN")
-TOKEN = os.environ['MAPBOX_TOKEN'] #deploy
-map = draw_map_sites(TOKEN)
+#TOKEN = os.getenv("MAPBOX_TOKEN") #local
+#TOKEN = os.environ['MAPBOX_TOKEN'] #deploy
+#map = draw_map_sites(TOKEN)
 
 #SCATTER PERFORMANCES SKI SHOOT
 df_H = pd.read_csv('./data/ski_shoot_2021_H.csv')
@@ -425,7 +425,7 @@ map_layout = html.Div(
     [
         dcc.Graph(
             id='map_sites',
-            figure=map
+            #figure=map
         )
     ],
     id='map'
