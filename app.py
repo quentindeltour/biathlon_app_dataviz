@@ -1,19 +1,3 @@
-from datetime import date, time, timedelta, datetime
-import os
-import re
-from re import match
-from dash_bootstrap_components._components.Alert import Alert
-from dash_bootstrap_components._components.Col import Col
-from dash_core_components.Dropdown import Dropdown
-from dash_html_components.Button import Button
-from dash_html_components.Div import Div
-import dateutil.parser
-import locale
-from dateutil.relativedelta import relativedelta
-from io import StringIO
-from math import comb
-import locale
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -25,7 +9,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 
 from make_plots import draw_map_sites, draw_ski_shoot_from_df_H, draw_ski_shoot_from_df_F,draw_PU_SP_correlation_from_groupby, draw_tv_audiences_tnt_tf1
 from make_plots import draw_medals_indiv_JO_F, draw_medals_indiv_JO_H, draw_medals_pays, draw_win_by_season, make_comparaison
@@ -47,7 +30,7 @@ mn_mf_comparaison = pd.read_csv('./data/mn_mf_comparaison.csv')
 plot_comparaison_F = make_comparaison(mn_mf_comparaison, sexe='F')
 
 #MAP SITES COUPE DU MONDE
-token = open("./data/token.mapbox_token").read() 
+#token = open("./data/token.mapbox_token").read() 
 #map = draw_map_sites(token)
 
 #SCATTER PERFORMANCES SKI SHOOT
