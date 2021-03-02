@@ -20,8 +20,8 @@ def draw_map_sites(token):
         textposition = "bottom center"))
 
      fig.update_layout(
-     width=700,
-     height=700,
+     width=850,
+     height=850,
      paper_bgcolor='#e9ecef',
      title={
           'text':'<b>' + 'Sites prévus pour la saison 2020/2021 de biathlon' + '</b>',
