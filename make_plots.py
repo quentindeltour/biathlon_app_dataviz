@@ -25,7 +25,7 @@ def draw_map_sites(token):
      paper_bgcolor='#e9ecef',
      title={
           'text':'<b>' + 'Sites prévus pour la saison 2020/2021 de biathlon' + '</b>',
-          'y':0.9,
+          'y':0.92,
           'x':0.5,
           'xanchor': 'center',
           'yanchor': 'top'
@@ -40,7 +40,7 @@ def draw_map_sites(token):
                lon=13
           ),
           pitch=0,
-          zoom=2.7
+          zoom=3
      ),
      )
      fig.add_annotation(text="En plus de ces sites classiques,<br>une étape était prévue à Pékin<br>pour préparer les JO qui auront lieu<br>l'année prochaine(début 2022)",
