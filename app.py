@@ -84,7 +84,8 @@ app = dash.Dash(__name__,
     update_title='En cours de chargement...',
     meta_tags=[{"name": "viewport", "content": "width=device-width", "charset":"utf-8"},]
 )
-#server = app.server
+
+server = app.server
 
 #HEADER LAYOUT 
 
