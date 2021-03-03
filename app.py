@@ -55,8 +55,25 @@ plot_audiences_pda = draw_tv_audiences_tnt_tf1(audiences, tf1=True, y='PdA')
 
 # CH MONDE 2021
 
-ch_monde_2021 = pd.read_csv('./data/ch_mond_2021.csv')
-table = dbc.Table.from_dataframe(ch_monde_2021, striped=True, bordered=True, hover=True, size='sm')
+table_header = [
+    html.Thead(html.Tr([html.Th("Rang"), html.Th("Nation"), html.Th("Or"), html.Th("Argent"), html.Th("Bronze"), html.Th("Total")]))
+]
+
+row1 = html.Tr([html.Td("1"), html.Td(["Norvège ",html.Span(className="flag-icon flag-icon-no")]),html.Td("7"),html.Td("3"),html.Td("4"),html.Td("14") ])
+row2 = html.Tr([html.Td("2"), html.Td(["France ",html.Span(className="flag-icon flag-icon-fr")]),html.Td("2"),html.Td("2"),html.Td("3"),html.Td("7") ])
+row3 = html.Tr([html.Td("3"), html.Td(["Suède ",html.Span(className="flag-icon flag-icon-se")]),html.Td("1"),html.Td("3"),html.Td("2"),html.Td("6") ])
+row4 = html.Tr([html.Td("4"), html.Td(["Autriche ",html.Span(className="flag-icon flag-icon-at")]),html.Td("1"),html.Td("2"),html.Td("0"),html.Td("3") ])
+row5 = html.Tr([html.Td("5"), html.Td(["République Tchèque ",html.Span(className="flag-icon flag-icon-cz")]),html.Td("1"),html.Td("0"),html.Td("0"),html.Td("1") ])
+row6 = html.Tr([html.Td("6"), html.Td(["Allemagne ",html.Span(className="flag-icon flag-icon-de")]),html.Td("0"),html.Td("2"),html.Td("0"),html.Td("0") ])
+
+
+
+table_body = [html.Tbody([row1, row2, row3, row4, row5, row6])]
+
+table = dbc.Table(table_header + table_body, striped=True, bordered=True, hover=True, size='sm')
+
+
+
 
 
 
@@ -121,10 +138,27 @@ introduction_layout = html.Div(
                                         html.Br(),
                                         "Il est très populaire dans les pays du Nord de l'Europe, mais est moins connu en France par exemple.",
                                         html.Br(),
-                                        "Nous allons essayer de situer la France dans le monde du Biathlon, en la comparant aux autre pays !"
+                                        "Nous allons essayer de situer la France dans le monde du Biathlon, en la comparant aux autre pays ! ",
                                     ]
-                                )
-                            ], width={"size":10, "offset":1}
+                                ),
+                                html.Span([
+                                    "Pour chaque élèment, je vais noter la France ",
+                                    html.Span(className="flag-icon flag-icon-fr"),
+                                    " sur une échelle allant de ",
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star "),
+                                    html.Span(className="fa fa-star "),
+                                    html.Span(className="fa fa-star "),
+                                    html.Span(className="fa fa-star"),
+                                    html.Span(" à "),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    ", mais je vais commencer par décrire ce sport particulier, et tout ce qu'il est nécessaire de savoir pour la suite."
+                                ]),                                
+                            ], lg={"size":10, "offset":1},width={"size":12, "offset":0},
                         )
                     ]
                 )
@@ -145,12 +179,12 @@ historique_layout = html.Div(
                         [
                             html.H1('Origine du biathlon', className='card-title'),
                             html.Hr(),
-                            html.P("Il a été créé par Oscar Wergeland en Norvège à la fin du 19ème siècle. Ce dernier souhaitait un exercice qui combine le ski et le tir pour créer une nouvelle entité militaire : "
+                            html.P("Cette combinaison de disciplines à été créé par Oscar Wergeland en Norvège à la fin du 19ème siècle. Ce dernier souhaitait un exercice qui combine le ski et le tir pour créer une nouvelle entité militaire : "
                                 "les patrouilles à ski. Ces patrouilles participèrent à la première guerre mondiale."),
-                            html.P("En 1924, lors des premiers jeux Olympiques d'Hiver à Chamonix, une discipline nommée patrouille militaire est crée. "
-                                "Elle n'aura lieu qu'une fois, et sera remplacée par des démonstrations à partir de 1928. "
+                            html.P("En 1924, lors des premiers jeux Olympiques d'Hiver à Chamonix, une épreuve nommée patrouille militaire est créée. "
+                                "Elle n'aura lieu qu'une fois (en 1924), et sera remplacée par des démonstrations (sans enjeux de médailles) à partir de 1928. "
                                 "Les patrouilles à ski furent à nouveau utilisées lors de la seconde guerre mondiale, et furent même l'objet de campagnes de propagande."),
-                            html.P("En 1960, les jeux Olympiques reconnaissent officiellement une nouvelle épreuve, appelée biathlon. Bien que désormais dénué de sens militaire, il en a conservé les charactéristiques : l'enchainement rapide entre l'effort physique (le ski) et l'effort mental (le tir.)"),
+                            html.P("En 1960, les jeux Olympiques reconnaissent officiellement une nouvelle épreuve, appelée biathlon. Bien que désormais dénué de sens militaire, le biathlon en a conservé les caractéristiques : l'enchainement rapide entre l'effort physique (le ski) et l'effort mental (le tir.)"),
                             html.Br(),
                             dbc.Button("Vidéo expliquant l'origine de ce sport", color="primary", className="mr-1",
                                         href="https://www.youtube.com/watch?v=14NTlDvmzyc",
@@ -217,17 +251,17 @@ deroulement_layout = html.Div(
                             ),
                             html.P("Lorsqu'ils s'élancent, les biathlètes sont préparés à un effort pouvant aller d'une vingtaine de minutes à quasiment une heure, selon les courses. "),
                         ]
-                    , width={"size":4, "offset":1}),
+                    , lg={"size":4, "offset":1},width={"size":12, "offset":0},),
                     dbc.Col(
                         [
                             html.Img(src="/assets/images/KD_on_unsplash.jpg", className='resize-bis'),
                             html.P([
                                 "Crédit photo : ",
                                 html.A('KD on unsplash', href="https://unsplash.com/@k_d?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText")],)
-                        ], width={"size":6, "offset":0}
+                        ], lg={"size":6, "offset":0},width={"size":12, "offset":0}
                     )
                 ],),
-                dbc.Row(dbc.Col([collapse_histoire], width={"size":10, "offset":1}))
+                dbc.Row(dbc.Col([collapse_histoire], lg={"size":10, "offset":1}, width={"size":12, "offset":0}))
             ],
         ),
     ],
@@ -286,7 +320,7 @@ courses_layout = html.Div(
                                 html.Br(),
                                 "Il existe également un classement pour chacune des spécialités, qui détermine le vainqueur des petits globes."
                             ]),
-                        ], width={"size":10, "offset":1}
+                        ], lg={"size":10, "offset":1},width={"size":12, "offset":0},
                     )
                 ),
                 dbc.Row(
@@ -380,7 +414,7 @@ courses_layout = html.Div(
                                         )
                                     ],
                                 )
-                            ],width={"size":10, "offset":1}
+                            ],lg={"size":10, "offset":1},width={"size":12, "offset":0},
                         ),
                     ]
                 ),
@@ -425,7 +459,8 @@ map_layout = html.Div(
     [
         dcc.Graph(
             id='map_sites',
-            #figure=map
+            #figure=map,
+            className='map-layout'
         )
     ],
     id='map'
@@ -473,9 +508,9 @@ sites_map_layout = html.Div(
                                         html.Span(className="fa fa-star checked"),
                                         html.Span(className="fa fa-star"),
                                 ]),],color='info'),
-                            ],width={"size":4, "offset":1}
+                            ],lg={"size":4, "offset":1},width={"size":12, "offset":0}
                         ),
-                        dbc.Col(map_layout, width={"size":6, "offset":0})
+                        dbc.Col(map_layout, lg={"size":6, "offset":0},width={"size":12, "offset":0},)
                     ],
                 ),
             ],
@@ -508,7 +543,7 @@ performance_layout = html.Div(
                                 "Cette analyse porte sur tous les biathlètes ayant concouru pour la coupe du monde 2020/2021."
                             ]
                         )
-                    ], width={"size":10, "offset":1}
+                    ], lg={"size":10, "offset":1},width={"size":12, "offset":0},
                 ),
             ]
         ),
@@ -520,14 +555,14 @@ performance_layout = html.Div(
                             dbc.Tab(label='Hommes', tab_id='tab-ho'),
                             dbc.Tab(label='Femmes', tab_id='tab-fe'),
                             ]),
-                    ], width={"size":10, "offset":1}
+                    ], lg={"size":10, "offset":1},width={"size":12, "offset":0},
                 ),
             ],
         ),
         dbc.Row(
             [
-                dbc.Col([html.Div(id='tabs-plot-performance-ho-fe')],width={"size":5, "offset":1}),
-                dbc.Col([html.Div(id="tabs-text-performance-ho-fe")],width={"size":4, "offset":1})
+                dbc.Col([html.Div(id='tabs-plot-performance-ho-fe')],lg={"size":5, "offset":1},width={"size":12, "offset":0},),
+                dbc.Col([html.Div(id="tabs-text-performance-ho-fe")],lg={"size":4, "offset":1},width={"size":12, "offset":0},)
             ],
         ),
         dbc.Row(
@@ -546,13 +581,13 @@ performance_layout = html.Div(
                                 dbc.ListGroupItem("Deuièmement, cette saison à clairement été dominée par les Norvégiens : ils sont aux trois premières places chez les Hommes, et première et troisième chez les femmes.")
                             ]
                         ),
-                    ], width={"size":5, "offset":1}
+                    ], lg={"size":5, "offset":1},width={"size":12, "offset":0},
                 ),
                 dbc.Col(
                     [
-                        html.P("Cette tendance peut se confirmer en regadant les résultats des derniers championnats du monde : ",),
+                        html.P("Cette tendance peut se confirmer en regadant le classement des médailles des derniers championnats du monde qui ont eu lieu en février 2021 : ",),
                         table
-                    ], width={"size":4, "offset":1}
+                    ], lg={"size":4, "offset":0},width={"size":12, "offset":0},
                 )
             ]
         ),
@@ -563,7 +598,7 @@ performance_layout = html.Div(
                     html.Br(),
                     "Néanmoins, la France continue de se positionner comme l'adversaire numéro un de la Norvège, comme l'ont montré les derniers championnats du monde."
                 ]
-            ), width={"size":10, "offset":1}
+            ), lg={"size":10, "offset":1},width={"size":12, "offset":0},
         ))
     ],
     id='performance'
@@ -576,7 +611,8 @@ def switch_tab(at):
         plot = html.Div([
             dcc.Graph(
                 id='scatter_H',
-                figure=scatter_H
+                figure=scatter_H,
+                className='figure-resizing-scatter'
             ),
         ])
         text = html.Div(
@@ -612,7 +648,8 @@ def switch_tab(at):
         plot = html.Div([
             dcc.Graph(
                 id='scatter_F',
-                figure=scatter_F
+                figure=scatter_F,
+                className='figure-resizing-scatter'
             )
         ])
         text = html.Div(
@@ -667,14 +704,15 @@ sport_layout = html.Div(
                                 html.Span(className="fa fa-star"),
                             ]),],color='info'),
                                 ]),
-                            ],width={"size":4, "offset":1}
+                            ],lg={"size":4, "offset":1},width={"size":12, "offset":0},
                         ),
                         dbc.Col(
                             [
                                 dcc.Graph(
-                                figure=jo_pays_all 
+                                figure=jo_pays_all,
+                                className='figure-resizing'
                                 ),
-                            ],width={"size":5, "offset":0}
+                            ],lg={"size":5, "offset":0},width={"size":12, "offset":0},
                         ),
                     ],
                 ),
@@ -711,14 +749,16 @@ sport_layout = html.Div(
                                 html.Span(className="fa fa-star checked"),
                             ]),],color='info'),
                                 ]),
-                            ],width={"size":5, "offset":1}
+                            ],width={"size":12, "offset":0}, lg={"size":4, "offset":1}
                         ),
                         dbc.Col(
                             [
                                 dcc.Graph(
-                                    figure=barchart_win_season
+                                    figure=barchart_win_season,
+                                    className='figure-resizing'
+
                                 ),
-                            ],width={"size":5, "offset":0}
+                            ],width={"size":12, "offset":0}, lg={"size":6, "offset":0}
                         ),
                     ],
                 ),
@@ -734,13 +774,13 @@ sport_layout = html.Div(
                                 "Nous allons maintenant nous intéresser à certains des plus grands (voir les plus grands) biathlètes de l'Histoire, à la fois chez les Hommes et chez les Femmes."
                             ]
                         )
-                    ],width={"size":10, "offset":1})
+                    ],lg={"size":10, "offset":1},width={"size":12, "offset":0},)
                 ),
                 dbc.Row(
                     [
                         dbc.Col(
                             [
-                                html.H2('Hommes', style={'textAlign':'center'}),
+                                html.H2('Plus grands biathlètes masculins', style={'textAlign':'center'}),
                                 html.P(
                                     [
                                         "Du côté des Hommes, deux noms ressortent loin en tête: Ole Einar Bjoerndalen et Martin Fourcade. "
@@ -759,7 +799,7 @@ sport_layout = html.Div(
                                                 html.P(["47 ans", html.Br(), "Actif de 1993 à 2018"]),
                                             ])
                                             ],
-                                            width={"size":4, "offset":2}),
+                                            md={"size":4, "offset":2}, width={"size":4, "offset":0},),
                                         dbc.Col(
                                             html.Div(
                                                 [
@@ -774,16 +814,21 @@ sport_layout = html.Div(
                                                     ),
                                                 ],
                                             ),
-                                            width={'size':4,"offset":1}
+                                            md={'size':4,"offset":1},width={"size":4, "offset":4},
                                         ),
                                     ]
                                 ),
-                                dcc.Graph(figure=plot_comparaison_H)
-                            ], width={"size":5, "offset":1}, className='column-left'
+                                dbc.Row(dbc.Col(
+                                dcc.Graph(
+                                    figure=plot_comparaison_H,
+                                    className='figure-resizing-comparaison'
+                                    ), width={"size":8, "offset":0}
+                                ))
+                            ], lg={"size":5, "offset":1},width={"size":12, "offset":0}, className='column-left'
                         ),
                         dbc.Col(
                             [
-                                html.H2('Femmes', style={'text-align':'center'}),
+                                html.H2('Plus grandes biathlètes féminine', style={'text-align':'center'}),
                                 html.P(
                                     [
                                         "Du côté des Femmes, le choix est moins évident. D'autres athlètes méritaient d'y figurer, comme Liv Poirée ou Uschi Disl par exemple, mais je ne pouvais en garder que 2."
@@ -803,7 +848,7 @@ sport_layout = html.Div(
                                                     )
                                                 ]
                                             ),
-                                            width={'size':4,'offset':3 }                                        
+                                            md={'size':4,'offset':2 },width={"size":4, "offset":0},                                        
                                         ),
                                         dbc.Col(
                                             html.Div(
@@ -817,12 +862,17 @@ sport_layout = html.Div(
                                                     )
                                                 ]
                                             ),
-                                            width={'size':4,"offset":1}
+                                            md={'size':4,"offset":1}, width={"size":4, "offset":4},
                                         )
                                     ],
                                 ),
-                                dcc.Graph(figure=plot_comparaison_F)
-                            ], width={"size":5, "offset":0}
+                                dbc.Row(dbc.Col(
+                                    dcc.Graph(
+                                        figure=plot_comparaison_F,
+                                        className='figure-resizing-comparaison'
+                                    ), width={"size":10, "offset":0}
+                                ))
+                            ], lg={"size":5, "offset":0},width={"size":12, "offset":0},
                         ),
                     ]
                 ),
@@ -832,14 +882,14 @@ sport_layout = html.Div(
                         html.P(
                             [
                                 "En plus de Martin Fourcade (qui est tout de même le Francais le plus titré aux Jeux Olympiques, été et hiver confondus),"
-                                "la France compte de nombreux autres athlètes ayant réussi de grandes carrières.",
+                                " la France compte de nombreux autres athlètes ayant réussi de grandes carrières.",
                                 html.Br(),
                                 "Chez les Hommes, Raphael Poirée à gagné la Coupe du Monde à 4 reprises au début des années 2000, "
-                                "Vincent Defrasne est champion olympique",
+                                "Vincent Defrasne est champion olympique.",
                                 html.Br(),
-                                "Chez les Femmes, Marie Dorin Habert à gagné de nombreux titres modiaux et terminé à la deuxième place de la coupe du monde lors de la saison 2015/2016",
+                                "Chez les Femmes, Marie Dorin Habert à gagné de nombreux titres mondiaux et terminé à la deuxième place de la coupe du monde lors de la saison 2015/2016.",
                                 html.Br(),
-                                "Et plein d'autres encore..."
+                                "Et plein d'autres encore biathlètes Francais ont fait ou font de belles carrières."
                             ]
                         ),
                         dbc.Alert([                            html.Div([
@@ -850,7 +900,7 @@ sport_layout = html.Div(
                                 html.Span(className="fa fa-star checked"),
                                 html.Span(className="fa fa-star checked"),
                             ]),],color='info'),
-                    ], width={"size":10, "offset":1}
+                    ], lg={"size":10, "offset":1},width={"size":12, "offset":0},
                 )),
             ]
         ),
@@ -894,7 +944,7 @@ audiences_layout = html.Div(
                                 ),
                                 html.P([
                                     "Un autre point important à noter, est que les courses les plus récemment créés, i.e. la poursuite, la massstart ainsi que les relais"
-                                    "sont les courses qui ont le plus de succès en termes d'audiences"
+                                    " sont les courses qui ont le plus de succès en termes d'audiences"
                                     "La raison est simple, ce sont des courses en confrontation directe, ce qui les rend beaucoup plus facilement compréhensibles par un public non avisé."
                                     "Ce sont également des courses très rythmées, avec de nombreu rebondissements."
                                     "A l'inverse, l'individuel est beaucoup plus difficile à suivre."
@@ -907,7 +957,7 @@ audiences_layout = html.Div(
                                 html.Span(className="fa fa-star checked"),
                                 html.Span(className="fa fa-star"),
                             ]),],color='info'),
-                            ],width={"size":4, "offset":1}
+                            ],lg={"size":4, "offset":1},width={"size":12, "offset":0},
                         ),
                         dbc.Col(
                                     [
@@ -917,7 +967,7 @@ audiences_layout = html.Div(
                                             ]),
                                         html.Div(id='tabs-plot-audiences'),
                                     ]
-                                ,width={"size":6, "offset":0}
+                                ,lg={"size":6, "offset":0},width={"size":12, "offset":0},
                         )
                     ],
                 ),                
@@ -933,13 +983,15 @@ def render_content(tab):
     if tab == 'tab-spec':
         return html.Div([
             dcc.Graph(
-            figure=draw_tv_audiences_tnt_tf1(audiences, y='TlspMoyen', tf1=True)
+            figure=draw_tv_audiences_tnt_tf1(audiences, y='TlspMoyen', tf1=True),
+            className='figure-resizing'
             ),
         ])
     elif tab == 'tab-pda':
         return html.Div([
             dcc.Graph(
-            figure=draw_tv_audiences_tnt_tf1(audiences, y='PdA', tf1=True)
+            figure=draw_tv_audiences_tnt_tf1(audiences, y='PdA', tf1=True),
+            className='figure-resizing'
             ),
         ])
 
@@ -975,7 +1027,7 @@ conclusion_layout = html.Div(
                                 html.Span(className="fa fa-star checked"),
                                 html.Span(className="fa fa-star checked"),
                             ]),], color='info'),
-                        ],width={"size":10,"offset":1}
+                        ],lg={"size":10,"offset":1}, width={"size":12, "offset":0},
                     )
                 )
 
@@ -1003,14 +1055,14 @@ footer = html.Div(
                             ],
                             vertical="md",
                         )
-                    ], width={"size":2, 'offset':2}
+                    ], lg={"size":2, 'offset':2},width={"size":2, 'offset':1}
                 ),
                 dbc.Col(
                     [
                         html.H2('Quentin Deltour'),
                         html.P(
                             [
-                                "Passionné de biathlon (et de plein d'autres sport), de dataviz, et "
+                                "Passionné de biathlon (et de sport en général), de dataviz, et "
                                 "étudiant à l'ENSAE.",
                                 html.Br(),
                                 "N'hésitez pas à me faire des retours, je suis preneur de tous commentaires."
@@ -1036,7 +1088,7 @@ footer = html.Div(
                                 ")"
                             ]
                         )                        
-                    ], width={"size":5, 'offset':2}
+                    ], lg={"size":5, 'offset':2},width={"size":7, 'offset':1}
                 )
             ]
         ),
