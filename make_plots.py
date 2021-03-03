@@ -61,7 +61,7 @@ def draw_map_sites(token):
 
 def draw_ski_shoot_from_df_H(df):
      color_list =['#d6af36', '#a7a7ad', '#a77044']+['#636EFA' for i in range(4, len(df)+1)]
-     color_sequence = {'Premier': '#d6af36', 'Second':'#a7a7ad', 'Troisieme':'#a77044', 'Francais':'#636EFA', 'Autres':'#FFA15A'}
+     color_sequence = {'Premier': '#d6af36', 'Second':'#a7a7ad', 'Troisieme':'#a77044', 'Francais':'#EF553B', 'Autres':'#636EFA'}
      df['Rank']=df['Rank'].astype(str)
      fig = px.scatter(df, x="ski", y="shoot_demeaned", 
                size='Score', custom_data=['Name', 'Rank'], color='Rank_lettres',
@@ -72,7 +72,7 @@ def draw_ski_shoot_from_df_H(df):
      fig.update_layout(     title={
           'text':'<b>' + 'Est-il plus important de bien tirer ou de bien skier ?' + '</b>',
           'y':0.96,
-          'x':0.5,
+          'x':0.4,
           'xanchor': 'center',
           'yanchor': 'top'
      })
@@ -201,7 +201,7 @@ def draw_ski_shoot_from_df_H(df):
 
 def draw_ski_shoot_from_df_F(df):
      color_list =['#d6af36', '#a7a7ad', '#a77044']+['#636EFA' for i in range(4, len(df)+1)]
-     color_sequence = {'Première': '#d6af36', 'Seconde':'#a7a7ad', 'Troisième':'#a77044', 'Autres':'#636EFA'}
+     color_sequence = {'Première': '#d6af36', 'Seconde':'#a7a7ad', 'Troisième':'#a77044', 'Francaise':"#EF553B", 'Autres':'#636EFA'}
      df['Rank']=df['Rank'].astype(str)
      fig = px.scatter(df, x="ski", y="shoot_demeaned", 
                size='Score', custom_data=['Name', 'Rank'], color='Rank_lettres',
@@ -212,7 +212,7 @@ def draw_ski_shoot_from_df_F(df):
      fig.update_layout(title={
           'text':'<b>' + 'Est-il plus important de bien tirer ou de bien skier ?' + '</b>',
           'y':0.96,
-          'x':0.5,
+          'x':0.4,
           'xanchor': 'center',
           'yanchor': 'top'
      })
@@ -295,7 +295,7 @@ def draw_ski_shoot_from_df_F(df):
           arrowwidth=1.5,
           arrowcolor="#636363",
           ax=50,
-          ay=-16)
+          ay=-18)
 
      fig.add_annotation(text="Excellente Tireuse<br>Excellente Skieuse",
                   xref="paper", yref="paper",
@@ -759,7 +759,7 @@ def make_comparaison(df, sexe='H'):
                borderpad=4,
                bgcolor="#2fa4e7",
                opacity=0.8)
-          fig.add_annotation(text="<b>Note de Lecture</b> :<br>C'est la différence de palmarès qui est représentée ici.<br>Ole Einar Bjoerndalen à remporté 12 courses de plus<br>que Martin Fourcade dans toute sa carrière.",
+          fig.add_annotation(text="<b>Note de lecture</b> :<br>C'est la différence de palmarès qui est représentée ici.<br>Ole Einar Bjoerndalen à remporté 12 courses de plus<br>que Martin Fourcade dans toute sa carrière.",
                     xref="paper", yref="paper",
                     x=0.1, y=-0.25, showarrow=False, 
                     font=dict(
@@ -802,4 +802,13 @@ def make_comparaison(df, sexe='H'):
                borderpad=4,
                bgcolor="#2fa4e7",
                opacity=0.8)
+          fig.add_annotation(text="<b>Note de lecture</b> :<br>C'est la différence de palmarès qui est représentée ici.<br>Magdalena Forsberg à remporté 8 courses de plus<br>que Magdalena Neuner au cours de sa carrière.",
+               xref="paper", yref="paper",
+               x=0.1, y=-0.25, showarrow=False, 
+               font=dict(
+                    family="Courier New, monospace",
+                    size=12,
+                    color="black"),
+
+          )
      return fig

@@ -156,7 +156,7 @@ introduction_layout = html.Div(
                                     html.Span(className="fa fa-star checked"),
                                     html.Span(className="fa fa-star checked"),
                                     html.Span(className="fa fa-star checked"),
-                                    ", mais je vais commencer par décrire ce sport particulier, et tout ce qu'il est nécessaire de savoir pour la suite."
+                                    ", mais je vais commencer par décrire ce sport, et tout ce qu'il est nécessaire de savoir pour la suite."
                                 ]),                                
                             ], lg={"size":10, "offset":1},width={"size":12, "offset":0},
                         )
@@ -179,7 +179,7 @@ historique_layout = html.Div(
                         [
                             html.H1('Origine du biathlon', className='card-title'),
                             html.Hr(),
-                            html.P("Cette combinaison de disciplines à été créé par Oscar Wergeland en Norvège à la fin du 19ème siècle. Ce dernier souhaitait un exercice qui combine le ski et le tir pour créer une nouvelle entité militaire : "
+                            html.P("Cette combinaison de disciplines à été créé par Oscar Wergeland en Norvège à la fin du 19ème siècle. Ce dernier souhaitait un exercice qui combine le ski et le tir pour créer une nouvelle entité militaire, "
                                 "les patrouilles à ski. Ces patrouilles participèrent à la première guerre mondiale."),
                             html.P("En 1924, lors des premiers jeux Olympiques d'Hiver à Chamonix, une épreuve nommée patrouille militaire est créée. "
                                 "Elle n'aura lieu qu'une fois (en 1924), et sera remplacée par des démonstrations (sans enjeux de médailles) à partir de 1928. "
@@ -238,9 +238,9 @@ deroulement_layout = html.Div(
                             html.Hr(),
                             html.P(
                                 [
-                                    "Une course de biathlon est composée d'un enchainement de tour de piste qui varie de 2 à 4 kilomètres en ski de fond, "
+                                    "Une course de biathlon est composée d'un enchainement de tours de piste qui varient de 2 à 4 kilomètres en ski de fond, "
                                     "chaque tour étant séparé par un passage sur le pas de tir. Lors de chaque tir, les athlètes doivent blanchir 5 cibles situées à une distance de 50 mètres."
-                                    " Les tirs sont alternés entre debout et couchés. Le diamètre de la cible à viser est de 4.5cm pour un tir couché, contre 11.5cm pour un tir debout.",
+                                    " Les tirs sont alternés entre couchés et debouts. Le diamètre de la cible à viser est de 4.5cm pour un tir couché, contre 11.5cm pour un tir debout.",
                                 ]
                             ),
                             html.P(
@@ -395,17 +395,18 @@ courses_layout = html.Div(
                                                     html.Hr(),
                                                     html.P([
                                                         html.Strong("La Relais Mixte"),
-                                                        " : Chaque pays aligne une équipe composé de 2 Hommes et 2 Femmes. La course est identique au relais simple."
+                                                        " : Chaque pays aligne une équipe composé de 2 Hommes et 2 Femmes. La course est identique au relais simple. "
                                                         "L'ordre de passage ainsi que les distances parcourues dépend des organisateurs."
                                                     ]),
                                                     html.Hr(),
                                                     html.P([
                                                         html.Strong("Le relais Mixte Simple"),
-                                                        " : La dernière course créée par la fédération internationale, avec son introduction lors de la saison 2014/2015.",
+                                                        " : La dernière course créée par la fédération internationale, puisqu'elle à été introduite lors de la saison 2014/2015.",
                                                         html.Br(),
                                                         "Chaque équipe est composée d'un Homme et d'une Femme d'un même pays, et qui effectuent 2 relais chacun."
                                                         "Chaque relais est composé de 2 boucles de 1.5km avec 2 tirs (couché puis debout), sauf le dernier relayeur qui effectue un tour de piste supplémentaire "
-                                                        "avant de passer la ligne d'arrivée.",
+                                                        "avant de passer la ligne d'arrivée. "
+                                                        "Pour cette épreuve, le tour de pénalité est réduit à une longueur de 75m.",
                                                         html.Br(),
                                                         "Pour des raisons d'équité, les organisateurs alternent entre Hommes et Femmes pour décider qui termine la course"
                                                     ]),
@@ -530,8 +531,8 @@ performance_layout = html.Div(
                         html.H1("Quid de cette saison ? "),
                         html.Hr(),
                         html.P([
-                            "En fin de saison dernière, Martin Fourcade à décidé de mettre un terme à sa carrière."
-                            "Au vu de son palmarès le placant parmi les 2 plus grands biathlètes de l'Histoire, il est légitime de se demander ce qu'il va se passer"
+                            "En fin de saison dernière, Martin Fourcade à décidé de mettre un terme à sa carrière. "
+                            "Au vu de son palmarès le placant parmi les 2 plus grands biathlètes de l'Histoire, il est légitime de se demander ce qu'il va se passer pour l'équipe de France"
                             " maintenant qu'il a pris sa retraite.",
                             html.Br(),
                             "Je ne vous en dit pas trop, mais la relève est assurée!"
@@ -539,7 +540,7 @@ performance_layout = html.Div(
                         html.P(
                             [
                                 "Comme tout sport composé de plusieurs disciplines, il est nécessaire au biathlon d'être performant à la fois au tir et sur les skis. "
-                                "Nous allons analyser les données de l'IBU, qui met à disposition les statistiques de tirs et de ski des athlètes pour en avoir le coeur net."
+                                "Nous allons analyser les données de l'IBU, qui met à disposition les statistiques de tirs et de ski des athlètes pour en avoir le coeur net. "
                                 "Cette analyse porte sur tous les biathlètes ayant concouru pour la coupe du monde 2020/2021."
                             ]
                         )
@@ -578,7 +579,7 @@ performance_layout = html.Div(
                             [
                                 dbc.ListGroupItem(["Premièrement, il faut faire partie des meilleurs en skis pour jouer la victoire au classement général. Martin Fourcade était le meilleur sur les skis, "
                                 "ce qui combiné à son excellent tir lui à permis de remporter tant de gros globes et de victoires."]),
-                                dbc.ListGroupItem("Deuièmement, cette saison à clairement été dominée par les Norvégiens : ils sont aux trois premières places chez les Hommes, et première et troisième chez les femmes.")
+                                dbc.ListGroupItem("Deuxièmement, cette saison à clairement été dominée par les Norvégiens : ils sont aux trois premières places chez les Hommes, et première et troisième chez les femmes.")
                             ]
                         ),
                     ], lg={"size":5, "offset":1},width={"size":12, "offset":0},
@@ -594,7 +595,7 @@ performance_layout = html.Div(
         dbc.Row(dbc.Col(                        
             html.P(
                 [
-                    "La Norvège à donc largement dominé le biathlon mondial cette saison, chez les Hommes et chez les Femmes et dans les relais. ",
+                    "La Norvège à donc largement dominé le biathlon mondial cette saison, que ce soit chez les Hommes, chez les Femmes ou dans les relais. ",
                     html.Br(),
                     "Néanmoins, la France continue de se positionner comme l'adversaire numéro un de la Norvège, comme l'ont montré les derniers championnats du monde."
                 ]
@@ -616,32 +617,35 @@ def switch_tab(at):
             ),
         ])
         text = html.Div(
-            dbc.Card(
-                [
-                    dbc.CardBody(
-                        [
-                            html.P(
-                                [
-                                    "Chez les Hommes, Johannes Boe est en tête du classement de la coupe du monde, notamment grâce à ses excellentes performances sur les skis et ce marlgré une certaine irrégularité sur le pas de tir.",
-                                    html.Br(),
-                                    "A son opposée, la jeune surprise de la saison Sturla Holm Laegrid excelle au tir et est régulier sur les skis, ce qui lui permet d'être toujours bien placé et à la deuxième place du classement général.",
-                                    html.Br(),
-                                    "Côté Français, Quentin Fillon Maillet et Emilien Jacquelin sont respectivement 4eme et 6eme. Leurs temps de ski et leur performance au tir sont bons, mais pas suffisant pour aller jouer la victoire au classement général cette saison."
-                                    "A l'heure ou j'écris, Quentin peut encore se battre pour une 3ème place au classement général, et Emilien pour le petit globe de la poursuite.",
-                                    dbc.Alert([                            html.Div([
-                                html.Span(html.Strong(['Résultats des Hommes ', html.Span(className="flag-icon flag-icon-fr"), ' cette saison: ']),),
-                                html.Span(className="fa fa-star checked"),
-                                html.Span(className="fa fa-star checked"),
-                                html.Span(className="fa fa-star checked"),
-                                html.Span(className="fa fa-star checked"),
-                                html.Span(className="fa fa-star"),
-                            ]),],color='info'),
-                                ]
-                            )
-                        ]
-                    ),
-                ],
-            ),
+            [
+                html.Br(),
+                dbc.Card(
+                    [
+                        dbc.CardBody(
+                            [
+                                html.P(
+                                    [
+                                        "Chez les Hommes, Johannes Boe est en tête du classement de la coupe du monde, notamment grâce à ses excellentes performances sur les skis et ce malgré une certaine irrégularité sur le pas de tir.",
+                                        html.Br(),
+                                        "A son opposée, la jeune surprise de la saison Sturla Holm Laegrid excelle au tir et est régulier sur les skis, ce qui lui permet d'être toujours bien placé et à la deuxième place du classement général.",
+                                        html.Br(),
+                                        "Côté Français, Quentin Fillon Maillet et Emilien Jacquelin sont respectivement 4ème et 6ème. Leurs temps de ski et leurs performances au tir sont bons, mais pas suffisant pour aller jouer la victoire au classement général cette saison face à Boe et Laegreid. "
+                                        "A l'heure ou j'écris, Quentin peut encore se battre pour une 3ème place au classement général, et Emilien pour le petit globe de la poursuite.",
+                                        dbc.Alert([                            html.Div([
+                                    html.Span(html.Strong(['Résultats des Hommes ', html.Span(className="flag-icon flag-icon-fr"), ' cette saison: ']),),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star"),
+                                ]),],color='info'),
+                                    ]
+                                )
+                            ]
+                        ),
+                    ],
+                ),
+            ]
         )
         return plot, text
     elif at == "tab-fe":
@@ -653,32 +657,35 @@ def switch_tab(at):
             )
         ])
         text = html.Div(
-            dbc.Card(
-                [
-                    dbc.CardBody(
-                        [
-                            html.P(
-                                [
-                                    "Chez les Femmes, Tiril Eckhoff est en tête de la coupe du monde grâce à son aisance sur les skis, malgré des statistiques de tir à peine au dessus de la moyenne."
-                                    "Certaines filles sont moins performantes sur les skis mais plus précises au tir commme Hannah Oeberg qui est actuellement deuxième au classement général",
-                                    html.Br(),
-                                    "Pour les Française, la saison à été plus compliquée. Cela semble être dû à une performance globale très moyenne au tir, puisque seule Anais Bescond "
-                                    "est au dessus de la moyenne des biathlètes du circuit."
-                                    "Julia Simon à été capable de belles victoires sur des Mass Starts qui lui permette de concourir pour le petit globe de la spécialité.",
-                                    dbc.Alert([                            html.Div([
-                                html.Span(html.Strong(['Résultats des Femmes ',html.Span(className="flag-icon flag-icon-fr"), ' cette saison : ']),),
-                                html.Span(className="fa fa-star checked"),
-                                html.Span(className="fa fa-star checked"),
-                                html.Span(className="fa fa-star checked"),
-                                html.Span(className="fa fa-star"),
-                                html.Span(className="fa fa-star"),
-                            ]),],color='info'),
-                                ]
-                            )
-                        ]
-                    ),
-                ],
-            ),
+            [
+                html.Br(),
+                dbc.Card(
+                    [
+                        dbc.CardBody(
+                            [
+                                html.P(
+                                    [
+                                        "Chez les Femmes, Tiril Eckhoff est en tête de la coupe du monde grâce à son aisance sur les skis, malgré des statistiques de tir à peine au dessus de la moyenne. "
+                                        "Certaines filles sont moins performantes sur les skis mais plus précises au tir commme Hannah Oeberg qui est actuellement deuxième au classement général",
+                                        html.Br(),
+                                        "Pour les Française, la saison à été plus compliquée. Cela semble être dû à une performance globale très moyenne au tir, puisque seule Anais Bescond "
+                                        "est au dessus de la moyenne des biathlètes du circuit. "
+                                        "Julia Simon à été capable de belles victoires sur des Mass Starts qui lui permette de concourir pour le petit globe de la spécialité.",
+                                        dbc.Alert([                            html.Div([
+                                    html.Span(html.Strong(['Résultats des Femmes ',html.Span(className="flag-icon flag-icon-fr"), ' cette saison : ']),),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star checked"),
+                                    html.Span(className="fa fa-star"),
+                                    html.Span(className="fa fa-star"),
+                                ]),],color='info'),
+                                    ]
+                                )
+                            ]
+                        ),
+                    ],
+                ),
+            ]
         )
         return plot, text
     return html.P("This shouldn't ever be displayed...")
@@ -694,7 +701,7 @@ sport_layout = html.Div(
                                 html.H1("Les performances sportives"),
                                 html.Hr(),
                                 html.P(["La France fait partie des 4 pays ayant récolté le plus de médailles aux Jeux Olympiques de biathlon, mais est loin derrière la Norvège, la Russie et l'Allemagne"
-                                    "et ce malgré les nombreux changements géopolitiques. Par exemple, le compte de médaille de la Russie est divisé en trois, entre l'URSS, la Russie moderne et l'équipe de l'ex URSS, qui à été utilisé lors des JO de 1992.",
+                                    " et ce malgré les nombreux changements géopolitiques. Par exemple, le compte de médaille de la Russie est divisé en trois, entre l'URSS, la Russie moderne et l'équipe de l'ex URSS, qui à été utilisé lors des JO de 1992.",
                                     dbc.Alert([                            html.Div([
                                 html.Span(html.Strong(['Résultats sportifs ',html.Span(className="flag-icon flag-icon-fr"),' de tous les temps : ']),),
                                 html.Span(className="fa fa-star checked"),
@@ -726,8 +733,8 @@ sport_layout = html.Div(
                                     "Rentrons un peu dans le détail. Le biathlon à beaucoup évolué dans le temps. En 1960, il n'y avait que ",
                                     html.Strong("l'individuel"),
                                     " et une course par équipe. Comme nous l'avons vu, il y a maintenant bien plus de courses. "
-                                    "Le graphique que nous avons vu plus haut cache cependant des disparités. "
-                                    "La France à été médaillé lors de l'édition des JO 1924, mais à ensuite dû attendre 1992 pour obtenir une nouvelle médaille.",
+                                    "Le graphique que nous avons vu plus haut cache des disparités. En effet, "
+                                    "la France à été médaillé lors de l'édition des JO 1924, mais à ensuite dû attendre 1992 pour obtenir une nouvelle médaille olympique.",
                                     dbc.Alert([                            html.Div([
                                 html.Span(html.Strong(['Résultats sportifs ',html.Span(className="flag-icon flag-icon-fr"), ' avant 1992 : ']),),
                                 html.Span(className="fa fa-star checked"),
@@ -738,7 +745,7 @@ sport_layout = html.Div(
                             ]),],color='info'),
                                     "Au contraire, depuis les années 2000, la France semble clairement rivaliser avec les autres grandes nations, voir être la plus forte chez les Hommes notamment.",
                                     html.Br(),
-                                    "Le graphique à droite montre que la France à été la Nation qui à gagné le plus de courses plusieurs fois, et à souvent rivalisé avec la Norvège."
+                                    "Le graphique à droite montre que la France à été le pays qui à gagné le plus de courses à plusieurs reprises, et à souvent rivalisé avec la Norvège, qui semble être le pays le plus régulier au cours des années. "
                                     "A l'inverse, la Russie et l'Allemagne semblent légèrement sur le déclin, notamment sur ces 3 dernières saisons.",
                                     dbc.Alert([                            html.Div([
                                 html.Span(html.Strong(['Résultats sportifs ',html.Span(className="flag-icon flag-icon-fr"), ' depuis 2000 : ']),),
@@ -780,7 +787,7 @@ sport_layout = html.Div(
                     [
                         dbc.Col(
                             [
-                                html.H2('Plus grands biathlètes masculins', style={'textAlign':'center'}),
+                                html.H2('Grandes figures masculines du biathlon', style={'textAlign':'center'}),
                                 html.P(
                                     [
                                         "Du côté des Hommes, deux noms ressortent loin en tête: Ole Einar Bjoerndalen et Martin Fourcade. "
@@ -828,7 +835,7 @@ sport_layout = html.Div(
                         ),
                         dbc.Col(
                             [
-                                html.H2('Plus grandes biathlètes féminine', style={'text-align':'center'}),
+                                html.H2('Grandes figures féminines du biathlon', style={'text-align':'center'}),
                                 html.P(
                                     [
                                         "Du côté des Femmes, le choix est moins évident. D'autres athlètes méritaient d'y figurer, comme Liv Poirée ou Uschi Disl par exemple, mais je ne pouvais en garder que 2."
@@ -884,12 +891,13 @@ sport_layout = html.Div(
                                 "En plus de Martin Fourcade (qui est tout de même le Francais le plus titré aux Jeux Olympiques, été et hiver confondus),"
                                 " la France compte de nombreux autres athlètes ayant réussi de grandes carrières.",
                                 html.Br(),
-                                "Chez les Hommes, Raphael Poirée à gagné la Coupe du Monde à 4 reprises au début des années 2000, "
-                                "Vincent Defrasne est champion olympique.",
+                                "Chez les Hommes, Raphael Poirée à gagné la Coupe du Monde à 4 reprises entre 2000 et 2004, ainsi que de nombreux petits globes et titres mondiaux. "
+                                "Vincent Defrasne est champion olympique de la poursuite à Turin en 2006.",
                                 html.Br(),
-                                "Chez les Femmes, Marie Dorin Habert à gagné de nombreux titres mondiaux et terminé à la deuxième place de la coupe du monde lors de la saison 2015/2016.",
+                                "Chez les Femmes, Marie Dorin Habert à gagné de nombreux titres mondiaux et terminé à la deuxième place de la coupe du monde lors de la saison 2015/2016, et "
+                                "Sandrine Bailly à remporté le gros globe en 2005.",
                                 html.Br(),
-                                "Et plein d'autres encore biathlètes Francais ont fait ou font de belles carrières."
+                                "Et plein d'autres biathlètes Francais ont fait ou font de belles carrières."
                             ]
                         ),
                         dbc.Alert([                            html.Div([
@@ -925,21 +933,21 @@ audiences_layout = html.Div(
                                 html.H1("Audiences télévisuelles"),
                                 html.Hr(),
                                 html.P([
-                                    "En France, la chaine l'Equipe diffuse les commpétitions de biathlon depuis 2015, et jusqu'en 2022 au moins."
-                                    "Grâce à des commentateurs et des analystes de qualité, ils ont fait du biathlon un sport populaire."
-                                    "Le biathlon réalise les meilleurs scores d'audience de la chaine et est le sport le plus regardé sur les chaines non traditionnelles."
+                                    "En France, la chaine l'Equipe diffuse les commpétitions de biathlon depuis 2015, et jusqu'en 2022 au moins. "
+                                    "Grâce à des commentateurs et des analystes de qualité, ils ont fait du biathlon un sport populaire. "
+                                    "Le biathlon réalise les meilleurs scores d'audience de la chaine et est le sport le plus regardé sur les chaines non traditionnelles. "
                                     "En revanche, il n'a pas (encore) la portée des sports tels que le Football ou le Rugby, qui sont diffusés sur les grandes chaînes nationales, "
                                     "et font toujours des cartons en terme d'audiences"
                                 ]),
                                 html.P(
                                     [
-                                        "Cependant, si les scors d'audiences du biathlon en France sont bons, ils sont très éloignés des scores réalisés dans d'autres pays"
+                                        "Cependant, si les scores d'audiences du biathlon en France sont bons, ils sont très éloignés des scores réalisés dans d'autres pays "
                                         "tels que l'Allemagne et la Norvège par exemple.",
                                         html.Br(),
                                         "En Norvège, le biathlon est diffusé sur la plus grand chaine de télévision du pays (NRK). Lors des derniers championnat du monde, la chaîne"
                                         " à atteint un pic avec 85% d'audiences nationales.",
                                         html.Br(),
-                                        "En allemagne, ils sont diffusés sur la première chaine nationale, l'ARD, et ont dépassé les 5 millions de téléspectateurs en même temps lors des dernires chammpionnats du monde."
+                                        "En Allemagne, ils sont diffusés sur la première chaine nationale, l'ARD, et ont dépassé les 5 millions de téléspectateurs simultanés lors des derniers chammpionnats du monde."
                                     ],
                                 ),
                                 html.P([
@@ -1005,7 +1013,7 @@ conclusion_layout = html.Div(
                             html.H1('Conclusion'),
                             html.Hr(),
                             html.P([
-                                "Revenons en à la question à la base de cette analyse : quelle est la place du biathlon en France ? ",
+                                "Revenons en à la question à la base de cette analyse : quelle est la place de la France dans le monde du biathlon ? ",
                                 html.Br(),
                                 "Côté sportif d'abord : "
                                 "la France est une des nations majeures du biathlon. Cela est notamment dû aux 20 dernières années, aucours desquelles les Français ont très bien performés en compétitions, "
@@ -1014,7 +1022,7 @@ conclusion_layout = html.Div(
                                 "voir pourquoi pas devenir la plus grande !",
                                 html.Br(),
                                 "Coté populaire, grâce à un bon engouement du public (notamment en lors de l'édition 2019), l'étape Française de la coupe du Monde au Grand Bornand semble s'installer dans le calendrier de l'IBU pour les années à venir. "
-                                "De plus, la diffusion du biathlon est un succès pour la chaine L'équipe, qui réalise de très bons score en terme d'audience, et croît tous les ans.",
+                                "De plus, la diffusion du biathlon est un franc succès pour la chaine L'équipe, qui réalise de très bons score en terme d'audience, et croît tous les ans.",
                                 html.Br(),
                                 "Tout cela est de bonne augure pour les JO d'hiver qui auront lieu en février 2022 à Pékin ! Le record à battre est celui établi en 2018 à Pyeongchang, "
                                 "avec 3 médailles d'or (2 en individuel pour Martin Fourcade, et 1 en relais mixte) et 2 de bronze." 
