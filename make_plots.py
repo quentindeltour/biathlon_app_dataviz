@@ -175,7 +175,7 @@ def draw_ski_shoot_from_df_H(df):
             size=12,
             color="#2fa4e7"
             ),)
-     fig.add_annotation(text="Plus le point est gros,<br>plus l'athlète à réalisé<br>de bonnes perormances<br>en Coupe du Monde<br>cette saison",
+     fig.add_annotation(text="Plus le point est gros,<br>plus l'athlète a réalisé<br>de bonnes perormances<br>en Coupe du Monde<br>cette saison",
                   xref="paper", yref="paper",
                   x=1.35, y=0.5, showarrow=False,font=dict(
             family="Courier New, monospace",
@@ -324,7 +324,7 @@ def draw_ski_shoot_from_df_F(df):
             size=12,
             color="#2fa4e7"
             ),)
-     fig.add_annotation(text="Plus le point est gros,<br>plus l'athlète à réalisé<br>de bonnes perormances<br>en Coupe du Monde<br>cette saison",
+     fig.add_annotation(text="Plus le point est gros,<br>plus l'athlète a réalisé<br>de bonnes perormances<br>en Coupe du Monde<br>cette saison",
                   xref="paper", yref="paper",
                   x=1.35, y=0.5, showarrow=False,font=dict(
             family="Courier New, monospace",
@@ -384,7 +384,7 @@ def draw_PU_SP_correlation_from_groupby(df):
                color="black"
                ),)
      fig.add_annotation(x=1, y=round(df[(df.Sexe=='Hommes')&(df.StartOrder==1)].ResultOrder.values[0]),
-          text="Chez les Hommes,<br>le premier à partir <br>arrive en moyenne 4ème",
+          text="Chez les Hommes,<br>le premier a partir <br>arrive en moyenne 4ème",
           showarrow=True,
           font=dict(
             family="Courier New, monospace",
@@ -404,7 +404,7 @@ def draw_PU_SP_correlation_from_groupby(df):
           bgcolor="#2fa4e7",
           opacity=0.8)
      fig.add_annotation(x=1, y=round(df[(df.Sexe=='Femmes')&(df.StartOrder==1)].ResultOrder.values[0]),
-          text="Chez les Femmes,<br>la première à partir <br>arrive en moyenne 3ème",
+          text="Chez les Femmes,<br>la première a partir <br>arrive en moyenne 3ème",
           showarrow=True,
           font=dict(
             family="Courier New, monospace",
@@ -469,7 +469,7 @@ def draw_tv_audiences_tnt_tf1(df, y='TlspMoyen',title="<b>7 Meilleure audience d
 
      if y=='TlspMoyen':
           fig.update_yaxes(title="Nombre de téléspectateurs moyens")
-          fig.update_traces(hovertemplate="L'évènement %{customdata[0]} (%{customdata[1]} sur %{customdata[2]})<br>à rassemblé %{y} téléspectateurs en moyenne<extra></extra>",)
+          fig.update_traces(hovertemplate="L'évènement %{customdata[0]} (%{customdata[1]} sur %{customdata[2]})<br>a rassemblé %{y} téléspectateurs en moyenne<extra></extra>",)
           fig.add_annotation(text="7 meilleures audiences<br> TV traditionnelle",
                xref="paper", yref="paper",
                x=0.08, y=0.75, showarrow=False,font=dict(
@@ -487,7 +487,7 @@ def draw_tv_audiences_tnt_tf1(df, y='TlspMoyen',title="<b>7 Meilleure audience d
           ),)
      elif y=='PdA':
           fig.update_yaxes(title="Part d'audiences moyenne")
-          fig.update_traces(hovertemplate="L'évènement %{customdata[0]} (%{customdata[1]} sur %{customdata[2]})<br>à rassemblé %{y} % de part d'audiences<extra></extra>",)
+          fig.update_traces(hovertemplate="L'évènement %{customdata[0]} (%{customdata[1]} sur %{customdata[2]})<br>a rassemblé %{y} % de part d'audiences<extra></extra>",)
           fig.update_layout(
                yaxis = dict(
                     tickmode = 'array',
@@ -526,11 +526,10 @@ def draw_tv_audiences_tnt_tf1(df, y='TlspMoyen',title="<b>7 Meilleure audience d
 
 def draw_medals_pays(df, title):
      fig = px.bar(
-          df.set_index('Pays')[['Or', 'Argent', 'Bronze']].stack().reset_index().rename(columns={0:'Nombre de médailles', 'level_1':'Métal'}),
-          x='Pays', y='Nombre de médailles', color="Métal", custom_data=['Métal'],
+          df.set_index(['Pays', 'text'])[['Or', 'Argent', 'Bronze']].stack().reset_index().rename(columns={0:'Nombre de médailles', 'level_2':'Métal'}),
+          x='Pays', y='Nombre de médailles', color="Métal", custom_data=['Métal','text'],
           color_discrete_sequence=['#d6af36', '#a7a7ad', '#a77044'],
           title=title,
-          
      )
      fig.update_layout(
           font_family="Courier New, monospace",
@@ -553,7 +552,7 @@ def draw_medals_pays(df, title):
           )
      )
      fig.update_traces(
-          hovertemplate="La %{x} à remporté %{y:.0f} médailles de %{customdata} aux JO")
+          hovertemplate="%{customdata[1]} a remporté %{y:.0f} médailles de %{customdata[0]} aux JO")
      fig.update_xaxes(tickangle=45)
      return fig
 
@@ -570,7 +569,7 @@ def draw_medals_indiv_JO_H(df, title):
           hovermode='x'
      )
      fig.update_traces(
-          hovertemplate="%{x} à remporté %{y:.0f} médailles de %{customdata} aux JO")
+          hovertemplate="%{x} a remporté %{y:.0f} médailles de %{customdata} aux JO")
      fig.add_annotation(x='Ole Einar Bjørndalen', y=13,
           text="Bjørndalen est l'athlète<br>le plus titré des JO d'hiver",
           showarrow=True,
@@ -626,14 +625,14 @@ def draw_medals_indiv_JO_F(df, title):
           hovermode='x'
      )
      fig.update_traces(
-          hovertemplate="%{x} à remporté %{y:.0f} médailles de %{customdata} aux JO")
+          hovertemplate="%{x} a remporté %{y:.0f} médailles de %{customdata} aux JO")
      return fig
 
 
 
 def draw_win_by_season(df):
      fig = px.bar(df, x='0', y='saison', color="Pays", title="Médailles par saisons par pays", orientation='h',
-     color_discrete_map={'France':'#636EFA','Norvège':'#EF553B', 'Allemagne':'#FECB52', 'Russie':'#FFF5EE'}, custom_data=['Pays'])
+     color_discrete_map={'France':'#636EFA','Norvège':'#EF553B', 'Allemagne':'#FECB52', 'Russie':'#FFF5EE'}, custom_data=['text'])
      fig.update_traces(texttemplate='%{x:.Of}', textposition='auto')
      fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
      fig.update_traces(textangle=0)
@@ -642,7 +641,7 @@ def draw_win_by_season(df):
 
      )
      fig.update_traces(
-          hovertemplate="La %{customdata[0]} à remporté %{x:.0f} courses lors de la saison %{y}")
+          hovertemplate="%{customdata[0]} a remporté %{x:.0f} courses lors de la saison %{y}")
      fig.update_yaxes(title="Saison", )
      fig.update_xaxes(title="Nombre de victoires")
      fig.update_layout(
@@ -759,7 +758,7 @@ def make_comparaison(df, sexe='H'):
                borderpad=4,
                bgcolor="#2fa4e7",
                opacity=0.8)
-          fig.add_annotation(text="<b>Note de lecture</b> :<br>C'est la différence de palmarès qui est représentée ici.<br>Ole Einar Bjoerndalen à remporté 12 courses de plus<br>que Martin Fourcade dans toute sa carrière.",
+          fig.add_annotation(text="<b>Note de lecture</b> :<br>C'est la différence de palmarès qui est représentée ici.<br>Ole Einar Bjoerndalen a remporté 12 courses de plus<br>que Martin Fourcade dans toute sa carrière.",
                     xref="paper", yref="paper",
                     x=0.1, y=-0.25, showarrow=False, 
                     font=dict(
@@ -802,7 +801,7 @@ def make_comparaison(df, sexe='H'):
                borderpad=4,
                bgcolor="#2fa4e7",
                opacity=0.8)
-          fig.add_annotation(text="<b>Note de lecture</b> :<br>C'est la différence de palmarès qui est représentée ici.<br>Magdalena Forsberg à remporté 8 courses de plus<br>que Magdalena Neuner au cours de sa carrière.",
+          fig.add_annotation(text="<b>Note de lecture</b> :<br>C'est la différence de palmarès qui est représentée ici.<br>Magdalena Forsberg a remporté 8 courses de plus<br>que Magdalena Neuner au cours de sa carrière.",
                xref="paper", yref="paper",
                x=0.1, y=-0.25, showarrow=False, 
                font=dict(

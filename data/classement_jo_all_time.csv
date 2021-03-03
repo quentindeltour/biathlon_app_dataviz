@@ -1,23 +1,23 @@
-Rang,Pays,Or,Argent,Bronze,Total
-1,Allemagne,19,23,14,56
-2,Norvège ,16,15,10,41
-3,Russie ,10,4,8,22
-4,France ,9,5,12,26
-5,Union soviétique ,9,5,5,19
-6,Suède ,5,3,6,14
-7,Biélorussie ,4,3,3,10
-8,Allemagne de l'Est ,3,4,4,11
-9,Slovaquie ,3,3,1,7
-10,Équipe unifiée de l’ex-URSS ,2,2,2,6
-11,Canada ,2,0,1,3
-12,Ukraine ,1,1,3,5
-13,Suisse ,1,1,0,2
-14,Bulgarie ,1,0,1,2
-15,Finlande ,0,5,2,7
-16,Tchéquie ,0,4,3,7
-17,Autriche ,0,3,3,6
-18,Italie ,0,1,5,6
-19,Slovénie ,0,1,1,2
-20,Pologne ,0,1,0,1
-20,Kazakhstan,0,1,0,1
-22,Croatie,0,0,1,1
+Rang,Pays,Or,Argent,Bronze,Total,text
+1,Allemagne,19,23,14,56,L'Allemagne
+2,Norvège ,16,15,10,41,La Norvège
+3,Russie ,10,4,8,22,La Russie
+4,France ,9,5,12,26,La France
+5,Union soviétique ,9,5,5,19,L'URSS
+6,Suède ,5,3,6,14,La Suède
+7,Biélorussie ,4,3,3,10,La Biélorussie
+8,Allemagne de l'Est ,3,4,4,11,L'Allemagne de l'Est
+9,Slovaquie ,3,3,1,7,La Slovaquie
+10,Équipe unifiée de l’ex-URSS ,2,2,2,6,L'équipe unifiée de l'ex URSS
+11,Canada ,2,0,1,3,Le Canada
+12,Ukraine ,1,1,3,5,L'Ukraine
+13,Suisse ,1,1,0,2,La Suiss
+14,Bulgarie ,1,0,1,2,La Bulgarie
+15,Finlande ,0,5,2,7,La Finlande
+16,Tchéquie ,0,4,3,7,La Tchéquie
+17,Autriche ,0,3,3,6,L'Autriche
+18,Italie ,0,1,5,6,L'Italie
+19,Slovénie ,0,1,1,2,La Slovénie
+20,Pologne ,0,1,0,1,La Pologne
+20,Kazakhstan,0,1,0,1,Le Kazakhstan
+22,Croatie,0,0,1,1,La Croatie
