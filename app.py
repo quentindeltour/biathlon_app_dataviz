@@ -12,9 +12,6 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 
-import locale
-locale.setlocale(locale.LC_TIME, 'fr_FR')
-
 from make_plots import draw_map_sites, draw_ski_shoot_from_df_H, draw_ski_shoot_from_df_F,draw_PU_SP_correlation_from_groupby, draw_tv_audiences_tnt_tf1
 from make_plots import draw_medals_indiv_JO_F, draw_medals_indiv_JO_H, draw_medals_pays, draw_win_by_season, make_comparaison, draw_trend
 
