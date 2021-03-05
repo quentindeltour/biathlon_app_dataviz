@@ -38,7 +38,7 @@ def draw_map_sites(token):
                lon=13
           ),
           pitch=0,
-          zoom=3
+          zoom=3.1
      ),
      )
      fig.add_annotation(text="En plus de ces sites classiques,<br>une étape était prévue à Pékin<br>pour préparer les JO qui auront lieu<br>l'année prochaine(début 2022)",
@@ -810,4 +810,137 @@ def make_comparaison(df, sexe='H'):
                     color="black"),
 
           )
+     return fig
+
+
+def draw_trend(df):
+     fig = px.area(df, x='Mois', y='Biathlon: (France)')
+     fig.update_traces(hovertemplate='Google Trend de "Biatlon" : %{y}')
+     fig.update_yaxes(title='Google Trend Biathlon')
+     fig.update_xaxes(
+          title='',
+          #rangeslider_visible=True,
+          rangeselector=dict(
+               buttons=list([
+                    dict(count=10, label="10 ans", step="year", stepmode="backward"),
+                    dict(count=5, label="5 ans", step="year", stepmode="backward"),
+                    dict(count=1, label="1 an", step="year", stepmode="backward"),
+                    dict(step="all", label="depuis 2004")
+               ])
+          )
+     )
+
+     fig.update_layout(
+          paper_bgcolor='#e9ecef',
+          plot_bgcolor='#e9ecef',
+          title_font_family="Courier New, monospace",
+          font_family="Courier New, monospace",
+          title={
+               'text':'<b>' + "Evolution de la Google Trend du Biathlon en France depuis 2004" + '</b>',
+               'y':0.99,
+               'x':0.5,
+               'xanchor': 'center',
+               'yanchor': 'top',
+               'font':{'size':20}
+          },
+          hovermode='x'
+     )
+     fig.update_xaxes(
+          dtick="M6",
+          tickformat="%b\n%Y",
+          ticklabelmode="period"
+     )
+
+     fig.add_annotation(x='2010-02-01', y=13,
+          text="JO de Vancouver",
+          showarrow=True,
+          font=dict(
+          family="Courier New, monospace",
+          size=12,
+          color="#ffffff"
+          ),
+          align="center",
+          arrowhead=2,
+          arrowsize=0.8,
+          arrowwidth=1.5,
+          arrowcolor="#636363",
+          ax=0,
+          ay=-40,
+          bordercolor="#c7c7c7",
+          borderwidth=2,
+          borderpad=4,
+          bgcolor="#2fa4e7",
+          opacity=0.8)
+
+     fig.add_annotation(x='2006-02-01', y=13,
+          text="JO de Turin",
+          showarrow=True,
+          font=dict(
+          family="Courier New, monospace",
+          size=12,
+          color="#ffffff"
+          ),
+          align="center",
+          arrowhead=2,
+          arrowsize=0.8,
+          arrowwidth=1.5,
+          arrowcolor="#636363",
+          ax=0,
+          ay=-40,
+          bordercolor="#c7c7c7",
+          borderwidth=2,
+          borderpad=4,
+          bgcolor="#2fa4e7",
+          opacity=0.8)
+
+     fig.add_annotation(x='2014-02-01', y=34,
+          text="JO de Sotchi",
+          showarrow=True,
+          font=dict(
+          family="Courier New, monospace",
+          size=12,
+          color="#ffffff"
+          ),
+          align="center",
+          arrowhead=2,
+          arrowsize=0.8,
+          arrowwidth=1.5,
+          arrowcolor="#636363",
+          ax=0,
+          ay=-40,
+          bordercolor="#c7c7c7",
+          borderwidth=2,
+          borderpad=4,
+          bgcolor="#2fa4e7",
+          opacity=0.8)
+
+     fig.add_annotation(x='2018-02-01', y=68,
+          text="JO de Pyeongchang",
+          showarrow=True,
+          font=dict(
+          family="Courier New, monospace",
+          size=12,
+          color="#ffffff"
+          ),
+          align="center",
+          arrowhead=2,
+          arrowsize=0.8,
+          arrowwidth=1.5,
+          arrowcolor="#636363",
+          ax=0,
+          ay=-40,
+          bordercolor="#c7c7c7",
+          borderwidth=2,
+          borderpad=4,
+          bgcolor="#2fa4e7",
+          opacity=0.8)
+
+     fig.add_annotation(text="Créé à partir de Google Trends",
+          xref="paper", yref="paper",
+          x=0, y=0.9, showarrow=False, 
+          font=dict(
+               family="Courier New, monospace",
+               size=12,
+               color="black")
+     )
      return fig

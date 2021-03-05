@@ -12,8 +12,11 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 
+import locale
+locale.setlocale(locale.LC_TIME, 'fr_FR')
+
 from make_plots import draw_map_sites, draw_ski_shoot_from_df_H, draw_ski_shoot_from_df_F,draw_PU_SP_correlation_from_groupby, draw_tv_audiences_tnt_tf1
-from make_plots import draw_medals_indiv_JO_F, draw_medals_indiv_JO_H, draw_medals_pays, draw_win_by_season, make_comparaison
+from make_plots import draw_medals_indiv_JO_F, draw_medals_indiv_JO_H, draw_medals_pays, draw_win_by_season, make_comparaison, draw_trend
 
 # PLOT MEDAILLES JO
 jo_all = pd.read_csv('./data/classement_jo_all_time.csv')
@@ -33,8 +36,13 @@ plot_comparaison_F = make_comparaison(mn_mf_comparaison, sexe='F')
 
 #MAP SITES COUPE DU MONDE
 #TOKEN = os.getenv("MAPBOX_TOKEN") #local
-#TOKEN = os.environ['MAPBOX_TOKEN'] #deploy
-#map = draw_map_sites(TOKEN)
+TOKEN = os.environ['MAPBOX_TOKEN'] #deploy
+map = draw_map_sites(TOKEN)
+
+#TREND BIATHLON FR
+
+trend_biathlon = pd.read_csv("./data/google_trend_biathlon.csv")
+fig_trend = draw_trend(trend_biathlon)
 
 #SCATTER PERFORMANCES SKI SHOOT
 df_H = pd.read_csv('./data/ski_shoot_2021_H.csv')
@@ -460,7 +468,7 @@ map_layout = html.Div(
     [
         dcc.Graph(
             id='map_sites',
-            #figure=map,
+            figure=map,
             className='map-layout'
         )
     ],
@@ -930,7 +938,7 @@ audiences_layout = html.Div(
                     [
                         dbc.Col(
                             [
-                                html.H1("Audiences télévisuelles"),
+                                html.H1("Audiences TV"),
                                 html.Hr(),
                                 html.P([
                                     "En France, la chaine l'Equipe diffuse les commpétitions de biathlon depuis 2015, et jusqu'en 2022 au moins. "
@@ -978,7 +986,36 @@ audiences_layout = html.Div(
                                 ,lg={"size":6, "offset":0},width={"size":12, "offset":0},
                         )
                     ],
-                ),                
+                ),
+                dbc.Row(dbc.Col(
+                    [
+                        html.H1('Une popularité croissante... '),
+                        html.Hr(),
+                        html.P([
+                            "Pour mieux se rendre compte de l'évolution de la popularité du biathlon en France, on peut s'intéresser au Google Trend associé au mot clé 'biathlon'. "
+                            "Ce score est compris entre 0 et 100, 100 étant la date (ici, le mois) pour laquelle le plus de requêtes avec ce mot clé ont été effectués. ",
+                        ]),
+                        dcc.Graph(figure = fig_trend),
+                        html.P([
+                            "Plusieurs éléments peuvent être analysé. Premièrement, il y a une forte saisonnalité (tout à fait normale puisque c'est un sport qui ne se pratique que l'hiver).",
+                            html.Br(),
+                            "Ensuite, on observe une nette hausse de la popularité depuis 2016. Celle ci peut s'expliquer par la diffusion en clair sur la chaine l'équipe, et l'augmentation "
+                            "de la médiatisation du sport qui est liée, puisque l'Équipe est également le premier quotidien sportif national.",
+                            html.Br(),
+                            "Enfin, on observe qu'avant 2016, il n'y avait des pics de popularité que tous les 4 ans lors des Jeux Olympiques d'Hiver.",
+                            html.Br(),
+                            "Tous ces éléments montrent l'attention croissante portée à ce sport en France, qui à été décuplée ces 5 dernières années."
+                        ]),
+                        dbc.Alert([                            html.Div([
+                                html.Span(html.Strong(['Popularité du biathlon en ',html.Span(className="flag-icon flag-icon-fr"), ' : ']),),
+                                html.Span(className="fa fa-star checked"),
+                                html.Span(className="fa fa-star checked"),
+                                html.Span(className="fa fa-star checked"),
+                                html.Span(className="fa fa-star checked"),
+                                html.Span(className="fa fa-star"),
+                            ]),],color='info'),
+                    ], lg={"size":9, "offset":1},width={"size":12, "offset":0},
+                ))               
             ],
         ),
     ],
@@ -1022,7 +1059,8 @@ conclusion_layout = html.Div(
                                 "voir pourquoi pas devenir la plus grande !",
                                 html.Br(),
                                 "Coté populaire, grâce à un bon engouement du public (notamment en lors de l'édition 2019), l'étape Française de la coupe du Monde au Grand Bornand semble s'installer dans le calendrier de l'IBU pour les années à venir. "
-                                "De plus, la diffusion du biathlon est un franc succès pour la chaine L'équipe, qui réalise de très bons score en terme d'audience, et croît tous les ans.",
+                                "De plus, la diffusion du biathlon est un franc succès pour la chaine L'équipe, qui réalise de très bons score en terme d'audience, et le nombre de téléspectateurs croît tous les ans, "
+                                "tout comme le nombre d'individus intéressés par ce sport, comme l'a montré l'évolution de la tendance Google.",
                                 html.Br(),
                                 "Tout cela est de bonne augure pour les JO d'hiver qui auront lieu en février 2022 à Pékin ! Le record à battre est celui établi en 2018 à Pyeongchang, "
                                 "avec 3 médailles d'or (2 en individuel pour Martin Fourcade, et 1 en relais mixte) et 2 de bronze." 
