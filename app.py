@@ -984,6 +984,7 @@ audiences_layout = html.Div(
                         )
                     ],
                 ),
+                html.Br(),
                 dbc.Row(dbc.Col(
                     [
                         html.H1('Une popularité croissante... '),
@@ -1121,6 +1122,8 @@ footer = html.Div(
                                 "Toutes cette analyse à été possible grâce aux données de l'IBU, accessible ",
                                 html.A("ici", href="https://www.biathlonresults.com/", target="_blank"),
                                 " grâce à une API gratuite.",
+                                html.Br(),
+                                "D'autres données sont issues de Wikipédia, Google Trends et Médiamétrie.",
                                 html.Br(),
                                 "Ce site à été créé avec ",
                                 html.A("Plotly", href="https://plotly.com/python/", target="_blank"),

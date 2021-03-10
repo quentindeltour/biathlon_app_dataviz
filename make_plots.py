@@ -88,16 +88,10 @@ def draw_ski_shoot_from_df_H(df):
                showticklabels=True,
           ),
      )
-     min_shoot = df.shoot_demeaned.min()
-     max_shoot = df.shoot_demeaned.max()
-     min_ski = df.ski.min()
-     max_ski = df.ski.max()
 
      shooter_index = df.shoot.idxmax()
      skiier_index = df.ski.idxmax()
-     first = df.iloc[0]
-     second = df.iloc[0]
-     third = df.iloc[0]
+
      fig.update_layout(legend_title_text='Classement Coupe du Monde', paper_bgcolor="#e9ecef",plot_bgcolor='#e9ecef',)
      fig.update_traces(
           hovertemplate="<br>".join([
@@ -140,7 +134,7 @@ def draw_ski_shoot_from_df_H(df):
           arrowsize=0.8,
           arrowwidth=1.5,
           arrowcolor="#636363",
-          ax=80,
+          ax=0,
           ay=-60,
           bordercolor="#c7c7c7",
           borderwidth=2,
@@ -201,11 +195,11 @@ def draw_ski_shoot_from_df_H(df):
 
 def draw_ski_shoot_from_df_F(df):
      color_list =['#d6af36', '#a7a7ad', '#a77044']+['#636EFA' for i in range(4, len(df)+1)]
-     color_sequence = {'Première': '#d6af36', 'Seconde':'#a7a7ad', 'Troisième':'#a77044', 'Francaise':"#EF553B", 'Autres':'#636EFA'}
+     color_sequence = {'Première': '#d6af36', 'Seconde':'#a7a7ad', 'Troisieme':'#a77044', 'Francaise':"#EF553B", 'Autres':'#636EFA'}
      df['Rank']=df['Rank'].astype(str)
      fig = px.scatter(df, x="ski", y="shoot_demeaned", 
                size='Score', custom_data=['Name', 'Rank'], color='Rank_lettres',
-               color_discrete_map=color_sequence,)
+               color_discrete_map=color_sequence,size_max=20)
      #fig.update_traces(hovertemplate='Ski: %{x} <br>Tir: %{y}')
      fig.update_yaxes(title='Performance au tir',zeroline=True, zerolinewidth=2, zerolinecolor='#2fa4e7')
      fig.update_xaxes(title='Performance sur les skis',zeroline=True, zerolinewidth=2, zerolinecolor='#2fa4e7')
@@ -281,7 +275,7 @@ def draw_ski_shoot_from_df_F(df):
           bgcolor="#2fa4e7",
           opacity=0.8)
 
-     fig.add_annotation(x=df.ski.iloc[2], y=df.shoot_demeaned.iloc[2],
+     fig.add_annotation(x=df.ski.iloc[1], y=df.shoot_demeaned.iloc[1],
           text="",
           showarrow=True,
           font=dict(
@@ -295,7 +289,7 @@ def draw_ski_shoot_from_df_F(df):
           arrowwidth=1.5,
           arrowcolor="#636363",
           ax=50,
-          ay=-18)
+          ay=-25)
 
      fig.add_annotation(text="Excellente Tireuse<br>Excellente Skieuse",
                   xref="paper", yref="paper",
@@ -632,7 +626,7 @@ def draw_medals_indiv_JO_F(df, title):
 
 def draw_win_by_season(df):
      fig = px.bar(df, x='0', y='saison', color="Pays", title="Médailles par saisons par pays", orientation='h',
-     color_discrete_map={'France':'#636EFA','Norvège':'#EF553B', 'Allemagne':'#FECB52', 'Russie':'#FFF5EE'}, custom_data=['text'])
+     color_discrete_map={'France':'#636EFA','Norvège':'#EF553B', 'Allemagne':'#FECB52', 'Russie':'#FFF5EE'}, custom_data=['text'], opacity=0.9)
      fig.update_traces(texttemplate='%{x:.Of}', textposition='auto')
      fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
      fig.update_traces(textangle=0)
@@ -937,7 +931,7 @@ def draw_trend(df):
 
      fig.add_annotation(text="Créé à partir de Google Trends",
           xref="paper", yref="paper",
-          x=0, y=0.9, showarrow=False, 
+          x=0, y=1, showarrow=False, 
           font=dict(
                family="Courier New, monospace",
                size=12,
